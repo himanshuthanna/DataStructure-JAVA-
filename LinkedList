@@ -1,0 +1,86 @@
+class Node{
+     int data;
+	 Node next;
+
+
+}
+class LinkedList1{
+   Node head;
+   public void insert(int data)
+     { Node node=new Node();
+	   node.data=data;
+	   if(head==null)
+	     { head=node;
+		 }
+	   else{
+	        Node n=head;
+			while(n.next!=null)
+			  {  n=n.next;
+			  }
+			 n.next=node; 
+	     }	 
+	 }
+	public void show(){
+	       Node node=head;
+		   while(node.next!=null)
+		     { System.out.println(node.data);
+			   node=node.next;
+			 }
+	       System.out.println(node.data);
+	  } 
+	public void insertAtStart(int data)
+	{   Node node=new Node();
+		node.next=head;
+		node.data=data;
+		 head=node;
+	   
+		
+	}
+    public void insertAt(int index,int data)
+	{  if(index==0)
+		{
+			insertAtStart(data);
+		}
+	  else{
+	   Node node=new Node();
+	  node.data=data;
+	  Node n=head;
+	  for(int i=0;i<index-1;i++)
+	   {
+		  n=n.next;
+	   }
+	   node.next=n.next;
+	   n.next=node;
+		
+	  }
+	}   
+    public void deleteAt(int index)
+	{ if(index==0)
+		{
+			head=head.next;
+		}		
+		else{
+	  Node node=head;
+	  Node n1=null;
+	  for(int i=0;i<index-1;i++)
+	   {
+		   node=node.next;
+	   }
+	    n1=node.next;
+		    node.next=n1.next;
+	  }
+	}	
+}
+ class Runner{
+    public static void main(String args[])
+	  {  LinkedList1 list=new LinkedList1();
+	     list.insert(5);
+		 list.insert(6);
+		 list.insert(18);
+		 list.insertAtStart(3);
+		 list.insertAt(0,66);
+		 list.deleteAt(0 );
+		 list.show();
+	  }
+
+} 
