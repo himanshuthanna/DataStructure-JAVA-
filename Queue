@@ -1,0 +1,65 @@
+//Queue using array in java
+class Runner{
+    public static void main(String args[])
+	  {  Queue q=new Queue();
+	     q.add(10);
+	     q.add(20);
+		 q.add(30);
+		 q.add(40);
+	     q.remove();
+		 q.add(50);
+		 q.add(60);
+		 q.add(70);
+		 System.out.println(q.isEmpty());
+		 System.out.println(q.isFull());
+		 System.out.println(q.getSize());
+		 q.show();
+		 
+	  }  
+
+}
+class Queue{
+    int data;
+	int rear;
+    int front;
+	int size;
+	int queue[]=new int[5];
+	public void add(int data)
+	 {  if(!isFull()){
+	    queue[rear]=data;
+	    rear=(rear+1)%5;//(rear+1)%5 Concept is used to implement circular array concept
+		size++;
+	    }
+		else{
+		  System.out.println("Queue is full");	
+		}
+	 } 
+	 public void show()
+	 {   System.out.print("Element: ");
+	    for(int i=0;i<size;i++)
+	    { System.out.print(queue[(front+i)%5]+" ");
+		}
+		 System.out.println("");
+	 }
+	 public void remove()
+	 {  if(!isEmpty())
+		 {
+	   System.out.println("Removed element:"+queue[front]);
+       size--;
+	   front=(front+1)%5;
+	   show();
+         }
+        else{
+			System.out.println("Queue is Empty");
+		}		 
+	 }
+	 public int getSize()
+	 {  return size;
+	 }
+	 public boolean isEmpty()
+	 {  return getSize()==0;
+	 }
+	 public boolean isFull()
+	 { return getSize()==5;
+	 }
+}
