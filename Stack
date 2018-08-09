@@ -1,0 +1,76 @@
+class Runner{
+    public static void main(String args[])
+	  {  Stack s=new Stack();
+	     s.push(12);
+		 s.push(15);
+	     s.push(10);
+		 s.push(20);
+		 s.push(30);
+		 s.push(40);
+		 s.show();
+		 s.pop();
+		 s.peek();
+		 s.empty();
+		 s.search(15);
+	  }
+
+}
+class Stack{
+    int stack[]=new int[10];
+	int top=0;
+	public void push(int data)
+	 { stack[top]=data;
+	   top++;
+	 }
+	public void show()
+      { 
+	        for(int i=top-1;i>=0;i--)
+	         { System.out.println(stack[i]);
+		     }
+	  }
+	public void pop()
+	{  if(stack[top]==0)
+		{
+		 System.out.println("stack is empty");		 
+		}
+       else{		
+	   int data;
+	   data=stack[top-1];
+	   stack[top-1]=0;
+	   System.out.println("Pop element is:"+data); 
+	   top--;
+	   System.out.println("After pop operation stack is like:");
+	   show();
+	   }
+	   	
+	}
+    public void peek()
+	{ int data;
+	  data=stack[top-1];
+	  System.out.println("peek element is:"+data);	
+	}	
+	public void empty()
+	{ if(stack[top-1]==0)
+		{
+			System.out.println("True");	
+		}
+	  else{
+		  System.out.println("False");	
+	    }	
+		
+	}
+	public void search(int data)
+	{     int flag=0;
+	      for(int i=top-1;i>=0;i--)
+	         {  if(stack[i]==data)
+				 { System.out.println(data+"  is found at  "+(top-i));
+			       flag=1; 
+				 }	 
+		     }
+			  if(flag!=1){
+			  System.out.println("-1");
+			  }
+	}
+	 
+
+}
