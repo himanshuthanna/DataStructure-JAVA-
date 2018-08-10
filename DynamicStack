@@ -1,0 +1,105 @@
+class Runner{
+    public static void main(String args[])
+	  {  Stack s=new Stack();
+	     s.push(12);
+		 s.push(15);
+	     s.push(10);
+		 s.push(20);
+		 s.push(30);
+		 s.push(40);
+		 s.push(50);
+		 s.push(60);
+		 s.push(80);
+		 s.push(90);
+		 s.show();
+		 s.pop();
+		 s.pop();
+		 s.pop();
+		 s.pop();
+		 s.pop();
+		 s.pop();
+		 s.show();
+		 
+	  }
+
+}
+class Stack{
+	 int capacity=2;
+    int stack[]=new int[capacity];
+	int top=0;
+	public void push(int data)
+	 {  if(size()==capacity)
+		  expand();
+	   stack[top]=data;
+	   top++;
+	 }
+	public void show()
+      { 
+	        for(int n:stack)
+			{System.out.print(n+" ");	}
+	  }
+	public void pop()
+	{  if(top<=0)
+		{
+		 System.out.println("stack is empty");		 
+		}
+       else{			
+	   int data;
+	   data=stack[top-1];
+	   stack[top-1]=0;
+	   System.out.println("Pop element is:"+data); 
+	   top--;
+	   shrink();
+	   }
+	   	
+	}
+    public void peek()
+	{ int data;
+	  data=stack[top-1];
+	  System.out.println("peek element is:"+data);	
+	}	
+	public void empty()
+	{ if(stack[top-1]==0)
+		{
+			System.out.println("True");	
+		}
+	  else{
+		  System.out.println("False");	
+	    }	
+		
+	}
+	public void search(int data)
+	{     int flag=0;
+	      for(int i=top-1;i>=0;i--)
+	         {  if(stack[i]==data)
+				 { System.out.println(data+"  is found at  "+(top-i));
+			       flag=1; 
+				 }	 
+		     }
+			  if(flag!=1){
+			  System.out.println("-1");
+			  }
+	}
+	public int size()
+	{
+	   return top;
+	}
+	public void expand(){
+		  int length=size();
+		  capacity=capacity*2;
+		 int newStack[]=new int[capacity];//here we are doubling the stack capacity;
+         System.arraycopy(stack,0,newStack,0,length);//this is inbuild method of copying in which first parameter is "from where to copy",2nd is "from what index to copy",3rd is "copy to new array",4th is "new array start with index",5th is "how much to copy"
+	     stack=newStack;
+	}
+	public void shrink(){
+		int length=size();
+		 if(length<=(capacity/2)/2)
+		{ 
+	      capacity=capacity/2;
+	      int newStack[]=new int[capacity];
+		  System.arraycopy(stack,0,newStack,0,length);
+	      stack=newStack;
+		}	 
+	}
+
+}
