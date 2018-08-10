@@ -1,0 +1,31 @@
+import java.util.List;
+import java.util.LinkedList;
+class Test{
+     public static void main(String args[])
+	   { LinkedList<String> ls=new LinkedList<String>();
+	     ls.add("123");
+		 ls.add("asd");
+		 ls.add("sadsa");
+		 ls.add("534");
+		 ls.add("000");
+		 ls.add("7896");
+		 ls.add("qwerty");
+		 ls.removeFirst();
+		 ls.removeLast();
+		 ls.addFirst("1010");
+		 ls.addLast("8888");
+		 ls.add(2,"222222");
+		 System.out.println("LinkedList is  "+ls);
+		 boolean b=ls.contains("9999");
+		 if(b)
+		 {
+			 System.out.println("Element present in list");
+		 }
+		 else{
+			 System.out.println("Element is not present in list");
+		 }
+		 
+	     
+	   }
+	  
+}
