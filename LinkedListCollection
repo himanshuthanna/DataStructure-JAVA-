@@ -15,7 +15,11 @@ class Test{
 		 ls.addFirst("1010");
 		 ls.addLast("8888");
 		 ls.add(2,"222222");
+		 System.out.println(ls.size());
 		 System.out.println("LinkedList is  "+ls);
+		 ls.remove("534");//can remove specific element
+		  System.out.println("LinkedList is  "+ls);
+		  ls.remove();//remove first element in list
 		 boolean b=ls.contains("9999");
 		 if(b)
 		 {
